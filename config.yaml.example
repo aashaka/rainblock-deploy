@@ -1,0 +1,8 @@
+docker_user: username
+docker_pass: password
+storage_nodes:
+  - 129.114.108.01
+  - 129.114.108.02
+evm_nodes:
+  - 129.114.108.01
+  - 129.114.108.03
