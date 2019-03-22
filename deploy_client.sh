@@ -90,5 +90,5 @@ test_container() {
 
 setup_docker_deps $1
 get_distribution $1
-setup_evm_container $1
+setup_client_container $1
 test_container $1
