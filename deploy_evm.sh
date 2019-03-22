@@ -68,8 +68,8 @@ setup_evm_container() {
 	        ssh ${USERNAME}@${ESERVERS[i]} "
 	            docker container rm -f levm-$j &> /dev/null
 	            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} &> /dev/null
-	            docker pull rainblock/rainblock:testVerifStore &> /dev/null
-	            docker run -e SNODES=$SNODES --name levm-$j -p $(( PORT+j )):50052 -d rainblock/rainblock:testVerifStore  &> /dev/null
+	            docker pull ${DOCKER_USER}/rainblock:testVerifStore &> /dev/null
+	            docker run -e SNODES=$SNODES --name levm-$j -p $(( PORT+j )):50052 -d ${DOCKER_USER}/rainblock:testVerifStore  &> /dev/null
 	        " &
 	        echo "${ESERVERS[i]}:$(( PORT+j ))," >> evm_ips.txt
         done

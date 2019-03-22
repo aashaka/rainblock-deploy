@@ -66,8 +66,8 @@ setup_storage_container() {
 	        ssh ${USERNAME}@${SSERVERS[i]} "
 	            docker container rm -f sstore-$j &> /dev/null
 	            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} &> /dev/null
-	            docker pull rainblock/rainblock:mainStore &> /dev/null
-	            docker run --name sstore-$j -p $(( PORT+j )):50051 -d rainblock/rainblock:mainStore &> /dev/null
+	            docker pull ${DOCKER_USER}/rainblock:mainStore &> /dev/null
+	            docker run --name sstore-$j -p $(( PORT+j )):50051 -d ${DOCKER_USER}/rainblock:mainStore &> /dev/null
 	        " &
 	        echo -n "${SSERVERS[i]}:$(( PORT+j ))," >> storage_ips.txt
         done

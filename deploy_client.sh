@@ -70,8 +70,8 @@ setup_client_container() {
 	        ssh ${USERNAME}@${CSERVERS[i]} "
 	            docker container rm -f client-$j &> /dev/null
 	            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} &> /dev/null
-	            docker pull rainblock/rainblock:testCliStore &> /dev/null
-	            docker run -e SNODES=$SNODES -e ENODES=$ENODES --name client-$j -d rainblock/rainblock:testCliStore  &> /dev/null
+	            docker pull ${DOCKER_USER}/rainblock:testCliStore &> /dev/null
+	            docker run -e SNODES=$SNODES -e ENODES=$ENODES --name client-$j -d ${DOCKER_USER}/rainblock:testCliStore  &> /dev/null
 	        " &
 	        echo "${CSERVERS[i]}:$(( PORT+j ))," >> client_ips.txt
         done
