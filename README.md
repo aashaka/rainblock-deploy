@@ -1,8 +1,11 @@
 ## Dependencies
 `docker`
+
 shyaml: `pip install shyaml`
 
 ## Demo
+This demo will run three docker containers containing an instance each of the storage server, test client, and test verifier respectively. It will cause interactions between the three components, and the results of these interactions will be logged. 
+
 1. Edit config.yaml
 	- Replace remote_user to user of a machine you are able to ssh into with your current username
 	- Replace IPs with IPs of the machine you are able to ssh into
