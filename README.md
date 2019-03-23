@@ -6,9 +6,23 @@ shyaml: `pip install shyaml`
 ## Demo
 This demo will run three docker containers containing an instance each of the storage server, test client, and test verifier respectively. It will cause interactions between the three components, and the results of these interactions will be logged. 
 
+`config.yaml` currently looks like this:
+```
+docker_user: rainblock
+docker_pass: some_random_password
+remote_user: cc 
+storage_nodes:
+  - 129.114.108.84 
+evm_nodes:
+  - 129.114.108.84 
+client_nodes:
+  - 129.114.108.84 
+```
+
 1. Edit config.yaml
 	- Replace `remote_user` to user of a machine you are able to ssh into
-	- Replace IPs with IPs of the machine you are able to ssh into
+	- Replace IPs of `storage_nodes`, `evm_nodes`, and `client_nodes` with IPs of the machine you are able to ssh into. They can all be the same IP address.
+	- You do not need to edit `docker_user` or `docker_pass`. This docker ID is associated with our images.
 2. Run `./deploy.sh 1 1 1`
 3. View logs in `logs/`. The expected logs already present in `logs_expected/`
 
