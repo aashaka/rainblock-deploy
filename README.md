@@ -24,8 +24,32 @@ client_nodes:
 	- Replace IPs of `storage_nodes`, `evm_nodes`, and `client_nodes` with IPs of the machine you are able to ssh into. They can all be the same IP address.
 	- You do not need to edit `docker_user` or `docker_pass`. This docker ID is associated with our images.
 2. Run `./deploy.sh 1 1 1`
-3. View logs in `logs/`. The expected logs already present in `logs_expected/`
-
+3. View logs in `logs/`. The expected logs already present in `logs_expected/`. For example, the server log should contain
+```
+Received shard and port:  -1 50051
+grpc server running on at 0.0.0.0:50051
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+ERROR: update
+ Error: Attempt to update a non-existent value
+    at StorageNode.update (/home/node/rainblock-storage/src/index.ts:290:17)
+    at Object.update (/home/node/rainblock-storage/src/server.ts:281:17)
+    at /home/node/rainblock-storage/node_modules/grpc/src/server.js:590:13
+Received getBlockHash call
+Received getBlockHash call
+Received getStorage call
+Received getStorage call
+Received getAccount call
+Received getAccount call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call
+```
+The error is expected: we are trying to update a non-existent value.
 
 ## Experiments
 ### Config
