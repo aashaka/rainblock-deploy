@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage - ./deploy_client.sh NUM_STORAGE_SERVICES
 
-USERNAME=cc
+USERNAME=$(cat config.yaml | shyaml get-value remote_user)
 DOCKER_USER=$(cat config.yaml | shyaml get-value docker_user)
 DOCKER_PASS=$(cat config.yaml | shyaml get-value docker_pass)
 CSERVERS=($(cat config.yaml | shyaml get-values client_nodes))

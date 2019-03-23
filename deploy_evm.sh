@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage - ./deploy_storage.sh NUM_EVM_SERVICES
 
-USERNAME=cc
+USERNAME=$(cat config.yaml | shyaml get-value remote_user)
 DOCKER_USER=$(cat config.yaml | shyaml get-value docker_user)
 DOCKER_PASS=$(cat config.yaml | shyaml get-value docker_pass)
 ESERVERS=($(cat config.yaml | shyaml get-values evm_nodes))
