@@ -1,0 +1,9 @@
+docker_user: rainblock
+docker_pass: phrase123
+remote_user: cc # DO: Add username of remote hosts
+storage_nodes:
+  - 129.114.108.84 # DO: Change IP to IP you can ssh into
+evm_nodes:
+  - 129.114.108.84 # DO: Change IP to IP you can ssh into
+client_nodes:
+  - 129.114.108.84 # DO: Change IP to IP you can ssh into

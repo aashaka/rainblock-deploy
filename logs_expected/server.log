@@ -1,0 +1,22 @@
+Received shard and port:  -1 50051
+grpc server running on at 0.0.0.0:50051
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+ERROR: update
+ Error: Attempt to update a non-existent value
+    at StorageNode.update (/home/node/rainblock-storage/src/index.ts:290:17)
+    at Object.update (/home/node/rainblock-storage/src/server.ts:281:17)
+    at /home/node/rainblock-storage/node_modules/grpc/src/server.js:590:13
+Received getBlockHash call
+Received getBlockHash call
+Received getStorage call
+Received getStorage call
+Received getAccount call
+Received getAccount call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call

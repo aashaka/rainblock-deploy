@@ -6,7 +6,7 @@ shyaml: `pip install shyaml`
 	- Replace remote_user to user of a machine you are able to ssh into
 	- Replace IPs to IPs of the machine you are able to ssh into
 2. Run `./deploy.sh 1 1 1`
-3. View logs in `logs/`
+3. View logs in `logs/`. The expected logs already present in `logs_expected/`
 
 
 ## Experiments

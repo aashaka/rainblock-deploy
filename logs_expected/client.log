@@ -1,0 +1,15 @@
+[ '129.114.108.84:4000' ]
+
+Starting client to connect server at:129.114.108.84:4000
+Debug Info in logs/testClient.log
+
+Test Success: getBlockHash has valid response for valid blocknumber
+Test Success: getStorage response to non-existing account is undefined
+Test Success: getBlockHash has no response for invalid blocknumber
+Test Success: getStorage of existing account but non-existing storage key
+Test Success: getAccount of non-existing account
+Test Success: getAccount of existing account
+Test Success: getCodeInfo of non-existing account with codeOnly set to true
+Test Success: getCodeInfo of non-existing account with codeOnly set to false
+Test Success: getCodeInfo of existing account with codeOnly set to true
+Test Success: getCodeInfo of existing account with codeOnly set to false
