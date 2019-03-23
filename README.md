@@ -3,8 +3,8 @@ shyaml: `pip install shyaml`
 
 ## Demo
 1. Edit config.yaml
-	- Replace remote_user to user of a machine you are able to ssh into
-	- Replace IPs to IPs of the machine you are able to ssh into
+	- Replace remote_user to user of a machine you are able to ssh into with your current username
+	- Replace IPs with IPs of the machine you are able to ssh into
 2. Run `./deploy.sh 1 1 1`
 3. View logs in `logs/`
 
