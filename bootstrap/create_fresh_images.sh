@@ -30,7 +30,7 @@ build_test_client_storage() {
     cd rainblock-storage && git checkout dockertest && cd ..
     zip -r rainblock-storage.zip rainblock-storage
     docker build . -t ${DOCKER_USER}/rainblock:testCliStore
-    docker push ${DOCKER_USER}/rainblock:testVerifStore
+    docker push ${DOCKER_USER}/rainblock:testCliStore
     cd ..
 }
 
