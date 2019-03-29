@@ -6,12 +6,50 @@ shyaml: `pip install shyaml`
 ## Demo
 This demo will run three docker containers containing an instance each of the storage server, test client, and test verifier respectively. It will cause interactions between the three components, and the results of these interactions will be logged. 
 
-1. Edit config.yaml
-	- Replace remote_user to user of a machine you are able to ssh into with your current username
-	- Replace IPs with IPs of the machine you are able to ssh into
-2. Run `./deploy.sh 1 1 1`
-3. View logs in `logs/`. The expected logs already present in `logs_expected/`
+`config.yaml` currently looks like this:
+```
+docker_user: rainblock
+docker_pass: some_random_password
+remote_user: cc 
+storage_nodes:
+  - 129.114.108.84 
+evm_nodes:
+  - 129.114.108.84 
+client_nodes:
+  - 129.114.108.84 
+```
 
+1. Edit config.yaml
+	- Replace `remote_user` to user of a machine you are able to ssh into
+	- Replace IPs of `storage_nodes`, `evm_nodes`, and `client_nodes` with IPs of the machine you are able to ssh into. They can all be the same IP address.
+	- You do not need to edit `docker_user` or `docker_pass`. This docker ID is associated with our images.
+2. Run `./deploy.sh 1 1 1`
+3. View logs in `logs/`. The expected logs already present in `logs_expected/`. For example, the server log should contain
+```
+Received shard and port:  -1 50051
+grpc server running on at 0.0.0.0:50051
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+Received Update call
+ERROR: update
+ Error: Attempt to update a non-existent value
+    at StorageNode.update (/home/node/rainblock-storage/src/index.ts:290:17)
+    at Object.update (/home/node/rainblock-storage/src/server.ts:281:17)
+    at /home/node/rainblock-storage/node_modules/grpc/src/server.js:590:13
+Received getBlockHash call
+Received getBlockHash call
+Received getStorage call
+Received getStorage call
+Received getAccount call
+Received getAccount call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call
+Received getCodeInfo Call
+```
+The error is expected: we are trying to update a non-existent value.
 
 ## Experiments
 ### Config
